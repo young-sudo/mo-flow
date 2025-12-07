@@ -1,2 +1,3 @@
-# mo-flow
-Workflow for multi-omic unsupervised interpretable factor analysis
+# Multi-omic unsupervised interpretable factor analysis workflow
+
+
