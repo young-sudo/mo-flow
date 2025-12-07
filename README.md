@@ -11,7 +11,11 @@ Aim of the project is to transform the original coursework notebook into a repro
 
 Project involves frameworks MOFA2 and MEFISTO.
 
+# Usage
+
 **Project in Active Development**
+
+# Methods
 
 # References
 
