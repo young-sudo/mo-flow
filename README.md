@@ -5,7 +5,7 @@
 ![MEFISTO](https://img.shields.io/badge/Mefisto-15905f?style=for-the-badge&logo=python&logoColor=white)
 ![Scanpy](https://img.shields.io/badge/Scanpy-f46e32?style=for-the-badge&logo=python&logoColor=white)
 
-Part of the 4EU+ Deep Learning in Life Sciences laboratory class by Britta Velten (University of Heidelberg).
+Part of the 4EU+ Deep Learning in Life Sciences lab by Britta Velten (University of Heidelberg).
 
 Aim of the project is to transform the original coursework notebook into a reproducible workflow that can be executed reliably across different environments beyond Google Colab.
 
