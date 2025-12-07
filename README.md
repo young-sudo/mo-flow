@@ -1,10 +1,9 @@
-# Multi-omic spatio-temporal factor analysis workflow
+# Multi-omic interpretable spatio-temporal factor analysis workflow
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MOFA2](https://img.shields.io/badge/MOFA2-157c74?style=for-the-badge&logo=python&logoColor=white)
 ![MEFISTO](https://img.shields.io/badge/Mefisto-15905f?style=for-the-badge&logo=python&logoColor=white)
 ![Scanpy](https://img.shields.io/badge/Scanpy-f46e32?style=for-the-badge&logo=python&logoColor=white)
-
 
 Part of the 4EU+ Deep Learning in Life Sciences laboratory class by Britta Velten (University of Heidelberg).
 
@@ -12,7 +11,7 @@ Aim of the project is to transform the original coursework notebook into a repro
 
 Project involves frameworks MOFA2 and MEFISTO.
 
-**Project in Active Development...**
+**Project in Active Development**
 
 # References
 
