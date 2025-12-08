@@ -32,11 +32,11 @@ _Based on 4EU+ DeepLife coursework materials_
 ## MOFA
 
 <p align="center" style="margin-top: 10px; margin-bottom: 15px;">
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa.png" alt="mofa_r2" width=300>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa.png" alt="mofa_r2" width=500>
     <br>
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_prob_factor_model.png" alt="mofa_prob" width=300>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_prob_factor_model.png" alt="mofa_prob" width=500>
     <br>
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_precision_med.png" alt="mofa_pm" width=300>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_precision_med.png" alt="mofa_pm" width=500>
     <br>
     <small>(1) Multi-modal factor analysis (MOFA) diagram. (2) The probabilistic factor model behind MOFA. (3) Example use case of MOFA's variance decomposition, inspection of weights, and dimensionality reduced visualization of samples capabilities - Precision Medicine</small>
 </p>
@@ -68,19 +68,19 @@ mu.tl.mofa()
 ```
 
 <p align="center" style="margin-top: 10px; margin-bottom: 10px;">
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_r2.png" alt="mofa_r2" width=300>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_r2.png" alt="mofa_r2" width=400>
     <br>
     <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_factors_metadata.png" alt="f1_weights" width=500>
     <br>
     <small>Factor variability plot (R2) and factor space plots with metadata features indicated by color, shape, and size</small>
 </p>
 
-### Interpreting integrated data
+### Results
 
 Let's have a look at the model output and analyse what is captured in the latent factors. For this, we are using the `mofax` package to load our trained model and then plot the amount of variance that each factor explains across the data modalities.
 
 <p align="center" style="margin-top: 10px; margin-bottom: 10px;">
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/f1_weights.png" alt="f1_weights" width=600>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/f1_weights.png" alt="f1_weights" width=700>
     <br>
     <small>Factor 1 feature weight plots with the features with the highest absolute weights labeled</small>
 </p>
@@ -94,7 +94,7 @@ We can see that in the mutations modality IGHV has a much higher absolute weight
 Focusing on the drug response, we notice PF477736 (D_078), AZD7762 (D_020), AT13387 (D_017), and dasatinib (D_050) have the major association with this factor. Those are the exact top associations with the IGHV status [described in the original paper](https://www.huber.embl.de/pub/pdf/Dietrich2018.pdf).
 
 <p align="center" style="margin-top: 10px; margin-bottom: 10px;">
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/F1_F2_ighv_tri12.png" alt="f1_f2" width=400>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/F1_F2_ighv_tri12.png" alt="f1_f2" width=600>
     <br>
     <small>Samples visualized in a factor space with Factors 1 and 2 acting as main axes and features IGHV and trisomy 12 used for visualization.</small>
 </p>
@@ -104,7 +104,7 @@ Focusing on the drug response, we notice PF477736 (D_078), AZD7762 (D_020), AT13
 MEFISTO (A Method for the Functional Integration of Spatial and Temporal Omics data)
 
 <p align="center" style="margin-top: 10px; margin-bottom: 10px;">
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto.png" alt="mefisto" width=500>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto.png" alt="mefisto" width=600>
     <br>
     <small>MEFISTO diagram</small>
 </p>
