@@ -15,7 +15,7 @@
 
 This project was inspired by the 4EU+ Deep Learning in Life Sciences lab by prof. Britta Velten (Heidelberg University).
 
-Aim of the project is to transform the original coursework notebook into a reproducible workflow that can be executed reliably across different environments beyond Google Colab.
+Aim of the project is to transform the original coursework into a reproducible workflow that can be executed reliably across different environments beyond Google Colab.
 
 Project involves frameworks MOFA2 and MEFISTO.
 1. Application of MOFA to a multi-omics data set (gene expression, methylation, mutations and drug responses)
@@ -32,11 +32,11 @@ _Based on 4EU+ DeepLife coursework materials_
 ## MOFA
 
 <p align="center" style="margin-top: 10px; margin-bottom: 15px;">
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa.png" alt="mofa_r2" width=500>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa.png" alt="mofa_r2" width=400>
     <br>
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_prob_factor_model.png" alt="mofa_prob" width=500>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_prob_factor_model.png" alt="mofa_prob" width=400>
     <br>
-    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_precision_med.png" alt="mofa_pm" width=500>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_precision_med.png" alt="mofa_pm" width=400>
     <br>
     <small>(1) Multi-modal factor analysis (MOFA) diagram. (2) The probabilistic factor model behind MOFA. (3) Example use case of MOFA's variance decomposition, inspection of weights, and dimensionality reduced visualization of samples capabilities - Precision Medicine</small>
 </p>
