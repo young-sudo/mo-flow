@@ -1,11 +1,17 @@
 # Multi-omic interpretable spatio-temporal factor analysis workflow
 
+*by Younginn Park*
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![MOFA2](https://img.shields.io/badge/MOFA2-157c74?style=for-the-badge&logo=python&logoColor=white)
 ![MEFISTO](https://img.shields.io/badge/Mefisto-15905f?style=for-the-badge&logo=python&logoColor=white)
 ![Scanpy](https://img.shields.io/badge/Scanpy-f46e32?style=for-the-badge&logo=python&logoColor=white)
 
-Part of the 4EU+ Deep Learning in Life Sciences lab by Britta Velten (University of Heidelberg).
+<p align="center">
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/DL_logo_header.png" alt="DL_logo">
+</p>
+
+This project was inspired by the 4EU+ Deep Learning in Life Sciences lab by prof. Britta Velten (Heidelberg University).
 
 Aim of the project is to transform the original coursework notebook into a reproducible workflow that can be executed reliably across different environments beyond Google Colab.
 
