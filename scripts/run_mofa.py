@@ -24,6 +24,7 @@ def read_data(data_dir: str, metadata_path: str, output: str):
     mdata.obs = mdata.obs.join(CLL_metadata)
 
     # Run MOFA
+    # use_obs: how to treat missing values
     mu.tl.mofa(mdata, use_obs='union', #likelihoods=['gaussian', 'gaussian', 'gaussian', 'gaussian']
            n_factors=15, convergence_mode='medium',
            outfile=output)
