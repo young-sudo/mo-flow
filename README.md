@@ -15,7 +15,7 @@
     <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/DL_logo_header.png" alt="DL_logo">
 </p>
 
-This project was inspired by the 4EU+ Deep Learning in Life Sciences lab by prof. Britta Velten (Heidelberg University).
+This project was inspired by the 4EU+ Deep Learning in Life Sciences lab with prof. Britta Velten (Heidelberg University).
 
 Aim of the project is to transform the original coursework into a reproducible workflow that can be executed reliably across different environments beyond Google Colab.
 
