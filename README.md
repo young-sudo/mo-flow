@@ -25,6 +25,12 @@ Project involves frameworks MOFA2 and MEFISTO.
 
 # Usage
 
+## Clone repository
+
+```bash
+git clone https://github.com/young-sudo/mo-flow.git
+```
+
 ## Install Nextflow
 
 ```bash
