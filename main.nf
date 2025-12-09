@@ -13,11 +13,11 @@ params.output_dir = params.output_dir ?: "results"
 if ( params.help ) {
     log.info """
     Usage:
-      nextflow run main.nf -profile conda --mode mapper --input_reads reads.fasta --input_reference ref.fasta
+      nextflow run main.nf -profile conda --mode mofa --input_dir data --output_model models/model.hdf5 --output_dir results
 
     Parameters:
        -profile           standard|conda|docker|singularity|slurm
-      --mode              mapper|assembler
+      --mode              mofa|mefisto
       --input_dir         dir path
       --output_model      output model path
       --output_dir        dir path
