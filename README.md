@@ -8,6 +8,8 @@
 ![MEFISTO](https://img.shields.io/badge/Mefisto-15905f?style=for-the-badge&logo=python&logoColor=white)
 ![Nextflow](https://img.shields.io/badge/Nextflow-DSL2-23CC85?style=for-the-badge&logo=nextflow&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Apptainer](https://img.shields.io/badge/Apptainer-2E6CE6?style=for-the-badge&logo=linuxcontainers&logoColor=white)
+
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/DL_logo_header.png" alt="DL_logo">
@@ -40,6 +42,14 @@ mv nextflow $HOME/.local/bin/
 nextflow info
 ```
 
+## Unzip data
+
+If you inted to use the chronic lymphocytic leukemia (CLL) for MOFA+ or evolutionary species development dataset (evodevo) for MEFISTO.
+
+```bash
+unzip data.zip
+```
+
 ## Basic run
 
 ```bash
@@ -47,6 +57,7 @@ nextflow run main.nf \
   -profile conda \
   --mode mofa \
   --input_dir data \
+  --output_model model/mefisto.hdf5 \
   --output_dir results
 ```
 
