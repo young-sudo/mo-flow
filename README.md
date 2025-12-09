@@ -78,6 +78,12 @@ Available modes:
 - `mofa` - run multi-omic factor analysis
 - `mefisto` - run spatio-temporal multi-omic factor analysis
 
+### For usage help run
+
+```bash
+nextflow run main.nf --help
+```
+
 # Methods
 
 _Based on 4EU+ DeepLife coursework materials_
