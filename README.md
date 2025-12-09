@@ -23,7 +23,43 @@ Project involves frameworks MOFA2 and MEFISTO.
 
 # Usage
 
-**Project in Active Development**
+## Install Nextflow
+
+```bash
+# Download Nextflow
+curl -s https://get.nextflow.io | bash
+
+# Make Nextflow executable
+chmod +x nextflow
+
+# Move Nextflow into an executable path
+mkdir -p $HOME/.local/bin/
+mv nextflow $HOME/.local/bin/
+
+# Confirm Nextflow is installed correctly
+nextflow info
+```
+
+## Basic run
+
+```bash
+nextflow run main.nf \
+  -profile conda \
+  --mode mofa \
+  --input_dir data \
+  --output_dir results
+```
+
+Available profiles:
+- `standard` - locally without containers
+- `conda` - with default mode and Conda environment
+- `docker` - with Docker
+- `singularity` - with Singularity/Apptainer
+- `slurm` - with slurm on HPC
+
+Available modes:
+- `mofa` - run multi-omic factor analysis
+- `mefisto` - run spatio-temporal multi-omic factor analysis
 
 # Methods
 
@@ -41,9 +77,9 @@ _Based on 4EU+ DeepLife coursework materials_
     <small>(1) Multi-modal factor analysis (MOFA) diagram. (2) The probabilistic factor model behind MOFA. (3) Example use case of MOFA's variance decomposition, inspection of weights, and dimensionality reduced visualization of samples capabilities - Precision Medicine</small>
 </p>
 
-The following section shows how to use the `muon` package to apply the factor model MOFA (Multi-Omics Factor Analysis) to integrate multi-omics data. The code is based on [this](https://muon-tutorials.readthedocs.io/en/latest/CLL.html) tutorial. We apply MOFA to a multi-omics data set, in which various data modalities have been measured in primary cancer cells of 200 individual patients with chronic lymphocytic leukemia (CLL). For more details on the data please see a detailed analysis in the [original publication](https://www.huber.embl.de/pub/pdf/Dietrich2018.pdf).
+The following section shows how to use the `muon` package to apply the factor model MOFA (Multi-Omics Factor Analysis) to integrate multi-omics data. The code is based on [this](https://muon-tutorials.readthedocs.io/en/latest/CLL.html) tutorial. MOFA has been applied to a multi-omics data set, in which various data modalities have been measured in primary cancer cells of 200 individual patients with chronic lymphocytic leukemia (CLL). For more details on the data please see a detailed analysis in the [original publication](https://www.huber.embl.de/pub/pdf/Dietrich2018.pdf).
 
-Count matrices and metadata of the multi-omics CLL study are publicly available as part of the [MOFAdata R package](http://bioconductor.org/packages/release/data/experiment/html/MOFAdata.html). For the purpose of this notebook, those matrices were saved in individual `.csv` files in the `data/` folder. Please make sure to add this folder to your local directory. The data set consists of the following four modalities:  
+Count matrices and metadata of the multi-omics CLL study are publicly available as part of the [MOFAdata R package](http://bioconductor.org/packages/release/data/experiment/html/MOFAdata.html). For the purpose of this project, those matrices were saved in individual `.csv` files in the `data/` folder. Please make sure to add this folder to your local directory. The data set consists of the following four modalities:
 1. mRNA: normalized expression of 5000 variable genes
 2. methylation: methylation state of 4248 CpG locations
 3. mutations: occurrence of insertions or deletions at 69 DNA regions
@@ -51,7 +87,7 @@ Count matrices and metadata of the multi-omics CLL study are publicly available 
 
 The data per modality is stored in the `AnnData` format (more infos about the Anndata structure [here](https://anndata.readthedocs.io/en/latest/)). This format is typically also used in single cell analysis, e.g. by the package `scanpy`. The value matrices can be accessed using `.X`, the row names are stored under `.obs_names` and the column names under `.var_names`.
 
-A data frame with some additional information about each patient which includes:
+A data frame with some additional information about each patient is also included which consists of:
 - Gender: m (male), f (female)
 - Age: age in years
 - TTT: time (in years) between taking the sample to the next treatment
@@ -59,7 +95,7 @@ A data frame with some additional information about each patient which includes:
 - treatedAfter: True/False indicating whether patient has been treated
 - Died: True/False indicating whether the patient died
 
-To create a multi-modal data object from the dictionary containing the four single modalities, we use the package `muon`. `muon` allows to directly run MOFA on this `MuData` object. If you want to learn more about `muon`, check out its [documentation](https://muon.readthedocs.io/en/latest/notebooks/quickstart_mudata.html) or [paper](https://link.springer.com/article/10.1186/s13059-021-02577-8).
+To create a multi-modal data object from the dictionary containing the four single modalities, package `muon` has been used. `muon` allows to directly run MOFA on this `MuData` object. If you want to learn more about `muon`, check out its [documentation](https://muon.readthedocs.io/en/latest/notebooks/quickstart_mudata.html) or [paper](https://link.springer.com/article/10.1186/s13059-021-02577-8).
 
 **Multi-omics factor analysis** (MOFA) integration can be run on a MuData object with a single command:
 
@@ -77,7 +113,7 @@ mu.tl.mofa()
 
 ### Results
 
-Let's have a look at the model output and analyse what is captured in the latent factors. For this, we are using the `mofax` package to load our trained model and then plot the amount of variance that each factor explains across the data modalities.
+In order to look at the model output and analyze what is captured in the latent factors, we are using the `mofax` package to load our trained model and then plot the amount of variance that each factor explains across the data modalities.
 
 <p align="center" style="margin-top: 10px; margin-bottom: 10px;">
     <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/f1_weights.png" alt="f1_weights" width=700>
@@ -101,13 +137,53 @@ Focusing on the drug response, we notice PF477736 (D_078), AZD7762 (D_020), AT13
 
 ## MEFISTO
 
-MEFISTO (A Method for the Functional Integration of Spatial and Temporal Omics data)
+Currently, an increasing number of multi omics data sets is created in which the samples are not indepently from each other but contain some known relationships between them. Examples for this would be collecting samples over multiple time points or in a spatial manner. For this purpose, the MOFA extension MEFISTO (A Method for the Functional Integration of Spatial and Temporal Omics data) which is based on Gaussian Processes (for details see the lecture material) has been developed. In the following section, we are going to apply MEFISTO to an evodevo dataset in which gene expression has been measured in samples from 5 different species in 5 organs across developmental time (from embryonic development to adulthood). The code of this section is based on [this](https://muon-tutorials.readthedocs.io/en/latest/mefisto/1-MEFISTO-evodevo.html) tutorial.
 
 <p align="center" style="margin-top: 10px; margin-bottom: 10px;">
     <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto.png" alt="mefisto" width=600>
     <br>
     <small>MEFISTO diagram</small>
 </p>
+
+The evodevo data contains normalized gene expression data for the 5 species (groups of the model: Human, Mouse, Rat, Rabbit and Opossum) and 5 organs (views of the model: Brain, Cerebellum, Heart, Liver and Testis) as well as the developmental time information for each sample. Note that in this data set only one modality (gene expression) has been measured, but we are instead treating the organs as different views of the model in this scenario. Please download the `evodevo.csv` data [from here](https://figshare.com/s/242916198fde3353f3e6) and save it in your data folder or use wget.
+
+The samples are here time points in various species at which a measurement has been taking during their development (wpc = weeks post conception). Since multiple species are used, we use the multi-group framework of MOFA, in which a group-specific factor matrix is learned.
+
+**MEFISTO** can be run on a `MuData` object with `mu.tl.mofa` by specifying which variable (*covariate*) should be treated as *time*.
+
+- To incorporate the time information, we specify which metadata column to use as a covariate for MEFISTO — `'time'`.
+- We also specify `'species'` to be used as groups.
+- In addition, we tell the model that we want to learn an alignment of the time points from different species by setting `smooth_warping=True` and using `'Mouse'` as reference.
+- Using the underlying Gaussian process for each factor we can interpolate to unseen time points. This is enabled by providing `new_values`, which correspond to the covariate, i.e. time.
+
+<p align="center" style="margin-top: 10px; margin-bottom: 10px;">
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto_time.png" alt="interpolated" width=400>
+    <br>
+    <small>Samples on a factor space colored by time warped (adjusted for sample sizes per species)</small>
+</p>
+
+## Factor interpolation
+
+Using the underlying Gaussian process for each factor we can interpolate to unseen time points for species that are missing data in these time points or intermediate time points.
+
+<p align="center" style="margin-top: 10px; margin-bottom: 10px;">
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto_interpolated_factors.png" alt="interpolated" width=800>
+    <br>
+    <small>Interpolated factors using underlying Gaussian process</small>
+</p>
+
+## Smoothness and sharedness of factors
+
+In addition to the factor values and the alignment the model also inferred an underlying Gaussian process that generated these values. By looking into it we can extract information on the smoothness of each factor, i.e. how smoothly it varies along developmental time, as well as the sharedness of each factor, i.e. how much the species (groups) show the same underlying developmental pattern and how the shape of their developmental trajectory related to a given developmental module (Factor) clusters between species.
+
+<p align="center" style="margin-top: 10px; margin-bottom: 10px;">
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto_smoothness.png" alt="interpolated" width=400>
+    <br>
+    <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mefisto_sharedness.png" alt="interpolated" width=400>
+    <br>
+    <small>Smoothness and sharedness of factors</small>
+</p>
+
 
 # References
 
