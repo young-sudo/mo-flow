@@ -86,7 +86,7 @@ nextflow run main.nf --help
 
 # Methods
 
-_Based on 4EU+ DeepLife coursework materials_
+_Based on 4EU+ DeepLife coursework materials, methods, and results_
 
 ## MOFA
 
