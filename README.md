@@ -19,6 +19,10 @@ This project was inspired by the <b>4EU+ Deep Learning in Life Sciences lab</b> 
 
 Aim of the project is to transform the original coursework into a reproducible workflow that can be executed reliably across different environments beyond Google Colab.
 
+Datasets used:
+- Chronic Lymphocytic Leukemia (CLL) dataset for MOFA2
+- Evolutionary Species Development Dataset (EvoDevo) for MEFISTO
+
 Project involves frameworks MOFA2 and MEFISTO.
 1. Application of MOFA to a multi-omics data set (gene expression, methylation, mutations and drug responses)
 2. Application of MEFISTO to a longitudinal data set (gene expression measurement samples over developmental time in multiple species and organs)
@@ -50,7 +54,7 @@ nextflow info
 
 ## Unzip data
 
-If you inted to use the chronic lymphocytic leukemia (CLL) for MOFA+ or evolutionary species development dataset (evodevo) for MEFISTO.
+If you inted to use the chronic lymphocytic leukemia (CLL) for MOFA+ or evolutionary species development dataset (EvoDevo) for MEFISTO.
 
 ```bash
 unzip data.zip
