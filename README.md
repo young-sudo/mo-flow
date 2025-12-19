@@ -99,7 +99,7 @@ nextflow run main.nf --help
     <br>
     <img src="https://raw.githubusercontent.com/young-sudo/mo-flow/main/img/mofa_precision_med.png" alt="mofa_pm" width=400>
     <br>
-    <small>(1) Multi-modal factor analysis (MOFA) diagram. (2) The probabilistic factor model behind MOFA. (3) Example use case of MOFA's variance decomposition, inspection of weights, and dimensionality reduced visualization of samples capabilities - Precision Medicine</small>
+    <small>(1) Multi-modal factor analysis (MOFA) diagram. (2) The probabilistic factor model behind MOFA. (3) Example use case of MOFA's variance decomposition, inspection of weights, and dimensionality reduced visualization of samples capabilities - Precision Medicine<br>(source: Argelaguet & Velten et al Mol Sys Bio 2018)</small>
 </p>
 
 The following section shows how to use the `muon` package to apply the factor model MOFA (Multi-Omics Factor Analysis) to integrate multi-omics data. The code is based on [this](https://muon-tutorials.readthedocs.io/en/latest/CLL.html) tutorial. MOFA has been applied to a multi-omics data set, in which various data modalities have been measured in primary cancer cells of 200 individual patients with chronic lymphocytic leukemia (CLL). For more details on the data please see a detailed analysis in the [original publication](https://www.huber.embl.de/pub/pdf/Dietrich2018.pdf).
